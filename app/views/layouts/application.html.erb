@@ -26,6 +26,10 @@
     crossorigin="anonymous"></script>
   <%= render 'home/header' %>
   <div class="container">
+    <br>
+    <% if notice %>
+      <%= render 'layouts/alert' %>
+    <% end %>
     <%= yield %>
   </div>
 </body>
