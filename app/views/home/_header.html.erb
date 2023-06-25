@@ -9,6 +9,12 @@
         <li class="nav-item">
           <%= link_to "About", home_about_path, class:"nav-link" %>
         </li>
+        <li class="nav-item">
+          <%= link_to "Friends", friends_path, class:"nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Add a friend", new_friend_path, class:"nav-link" %>
+        </li>
       </ul>
       <form class="d-flex" role="search">
         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
@@ -17,3 +23,16 @@
     </div>
   </div>
 </nav>
+<!-- 
+Prefix Verb   URI Pattern                                                                                       Controller#Action
+friends GET    /friends(.:format)                                                                                friends#index
+        POST   /friends(.:format)                                                                                friends#create
+new_friend GET    /friends/new(.:format)                                                                            friends#new
+edit_friend GET    /friends/:id/edit(.:format)                                                                       friends#edit
+ friend GET    /friends/:id(.:format)                                                                            friends#show
+        PATCH  /friends/:id(.:format)                                                                            friends#update
+        PUT    /friends/:id(.:format)                                                                            friends#update
+        DELETE /friends/:id(.:format)                                                                            friends#destroy
+home_index GET    /home/index(.:format)                                                                             home#index
+home_about GET    /home/about(.:format)                                                                             home#about
+   root GET    / -->
