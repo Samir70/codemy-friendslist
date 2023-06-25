@@ -12,9 +12,25 @@
         <li class="nav-item">
           <%= link_to "Friends", friends_path, class:"nav-link" %>
         </li>
-        <li class="nav-item">
-          <%= link_to "Add a friend", new_friend_path, class:"nav-link" %>
-        </li>
+        
+        <% if user_signed_in? %>
+          <li class="nav-item">
+            <%= link_to "Add a friend", new_friend_path, class:"nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Sign Out", destroy_user_session_path, data: { "turbo-method": :delete }, class:"nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Edit profile", edit_user_registration_path, class:"nav-link" %>
+          </li>
+        <% else %>
+          <li class="nav-item">
+            <%= link_to "Sign Up", new_user_registration_path, class:"nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Sign In", new_user_session_path, class:"nav-link" %>
+          </li>
+        <% end %>
       </ul>
       <form class="d-flex" role="search">
         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
@@ -23,16 +39,3 @@
     </div>
   </div>
 </nav>
-<!-- 
-Prefix Verb   URI Pattern                                                                                       Controller#Action
-friends GET    /friends(.:format)                                                                                friends#index
-        POST   /friends(.:format)                                                                                friends#create
-new_friend GET    /friends/new(.:format)                                                                            friends#new
-edit_friend GET    /friends/:id/edit(.:format)                                                                       friends#edit
- friend GET    /friends/:id(.:format)                                                                            friends#show
-        PATCH  /friends/:id(.:format)                                                                            friends#update
-        PUT    /friends/:id(.:format)                                                                            friends#update
-        DELETE /friends/:id(.:format)                                                                            friends#destroy
-home_index GET    /home/index(.:format)                                                                             home#index
-home_about GET    /home/about(.:format)                                                                             home#about
-   root GET    / -->
